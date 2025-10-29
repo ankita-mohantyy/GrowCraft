@@ -566,7 +566,37 @@
       }
 
     }
-  
+
+    /* Make grid-lines black and keep text white in dark mode */
+    body.dark-mode .grid-lines,
+    body.theme-dark .grid-lines,
+    html[data-bs-theme="dark"] .grid-lines {
+      background-color: #000 !important;
+      /* keep the subtle dividers if you want them, otherwise remove these two lines */
+      background-image:
+        linear-gradient(transparent, transparent calc(100% - 1px), rgba(255,255,255,0.06) calc(100% - 1px)),
+        linear-gradient(90deg, transparent, transparent calc(100% - 1px), rgba(255,255,255,0.06) calc(100% - 1px));
+      opacity: 1 !important;
+      filter: none !important;
+    }
+
+    /* Ensure page text is white/readable when dark mode is active */
+    body.dark-mode,
+    body.theme-dark,
+    html[data-bs-theme="dark"] {
+      color: #ffffff !important;
+    }
+
+    /* Tighten contrast for main content elements */
+    body.dark-mode h1,
+    body.dark-mode h2,
+    body.dark-mode h3,
+    body.dark-mode p,
+    body.dark-mode .lead,
+    body.dark-mode .muted {
+      color: #ffffff !important;
+    }
+
   </style>
 </head>
 
